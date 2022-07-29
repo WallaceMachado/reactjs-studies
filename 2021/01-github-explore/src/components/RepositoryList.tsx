@@ -2,12 +2,17 @@ import { useState, useEffect } from "react";
 import { RepositoryItem } from "./RepositoryItem"
 import '../styles/repositories.scss'
 
+interface Repository {
+    name: string;
+    description: string;
+    html_url: string;
+}
 
 // repositoryList é pai de RepositoryItem e sendo assim pode passar uma propriedade um valor pelo props
 // para utilizarmos js com html inserimos a {} e colocamos o codigo js dentro
 // por padrão nomeamos um componente com letra maiscula e apenas um coponente por aquivo
 export function RepositoryList(){
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
     //<> generic -> <Repository> || <Repository[]> -> generic de listagem
 
     // primeiro é a função que será executada quando o estado da segundo for atendito
